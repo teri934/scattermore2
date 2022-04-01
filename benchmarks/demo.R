@@ -1,23 +1,36 @@
-library(cowplot)
-library(ggplot2)
-library(tcltk)
-
-df <- readRDS(file="data/complete_gauss.Rda")
-
-X11()
-
-ggplot() +
-    geom_line(data = df, mapping = aes(x = data, y = time, group = bitmap, color = "Not precomputed time")) +
-    geom_line(data = df, mapping = aes(x = data, y = precomp_time, group = bitmap, color = "Precomputed time")) +
-    facet_grid(rows = vars(bitmap)) +
-    scale_y_continuous(sec.axis = sec_axis(~ . , name = "Bitmap dimension (pixels)", breaks = NULL, labels = NULL)) +
-    labs(title = "Observed execution of method apply_kernel_data",
-         x = "Size of data (number of points)",
-         y = "Time (s)",
-         color = "Legend") +
-    theme(panel.spacing.x = unit(2, "lines"))  #???? co so spacing
-    #theme_minimal_grid(12)
-
-prompt  <- "hit spacebar to close plots"
-extra   <- "just for visualization"
-capture <- tk_messageBox(message = prompt, detail = extra)
+# library(scattermore2)
+#
+# #preload bitmap sizes array
+# bitmap_sizes = c()
+# size = 2
+# while (size <= 1024){
+#     bitmap_sizes <- append(bitmap_sizes, size)
+#     size = size * 2
+# }
+#
+# #preload data sizes array
+# data_sizes = c()
+# size = 10
+# while (size <= 10000000){
+#     data_sizes <- append(data_sizes, size)
+#     size = size * 10
+# }
+#
+# data = c()
+# bitmap = c()
+# time = c()
+# for (d in data_sizes){
+#     for (bm in bitmap_sizes){
+#         current_data <- cbind(rnorm(d), rnorm(d))
+#         colorized <- colorize_data(current_data, out_size = c(bm, bm))
+#         t = system.time(apply_kernel_data(colorized))
+#
+#         data <- append(data, d)
+#         bitmap <- append(bitmap, bm)
+#         time <- append(time, t['elapsed'])
+#     }
+# }
+#
+# df = data.frame(data, bitmap, time)
+#
+# saveRDS(df, file="data/old_gauss.Rda")
