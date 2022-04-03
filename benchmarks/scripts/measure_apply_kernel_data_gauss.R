@@ -15,7 +15,7 @@ for (bm in bitmap_sizes){
         current_data <- cbind(rnorm(10), rnorm(10)) #data size doesn't matter
         colorized <- colorize_data(current_data, out_size = c(bm, bm))
 
-        t = system.time(apply_kernel_data(colorized))
+        t = system.time(apply_kernel_data(colorized, filter = "gauss"))
         bitmap <- append(bitmap, bm)
         time <- append(time, t['elapsed'])
     }

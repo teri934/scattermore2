@@ -16,6 +16,7 @@ ggplot(df, aes(bitmap, time, color = method)) +
     scale_x_log10("Bitmap dimension", labels = function(x)paste(x,'px')) +
     scale_y_log10("Time", labels = function(x)f2si(x, 's')) +
     ggtitle("Performance of apply_kernel_data") +
+    scale_color_manual(name = "Computations", labels = c("not precomp. kernel", "precomp. kernel"), values = c("time" = "red", "precomp_time" = "green")) +
     theme_cowplot(font_size = 9) +
     theme(panel.grid.major = element_line(color='#dddddd'))
 )
