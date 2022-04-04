@@ -52,13 +52,13 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="articles/combine.html">Combining with scattermore2</a>
+      <a href="articles/histogram.html">Operations with histograms</a>
     </li>
     <li>
-      <a href="articles/data.html">Data with scattermore2</a>
+      <a href="articles/merge_and_blend.html">Merging and blending points</a>
     </li>
     <li>
-      <a href="articles/histogram.html">Histograms with scattermore2</a>
+      <a href="articles/points.html">Operations with points</a>
     </li>
   </ul>
 </li>
@@ -102,8 +102,8 @@
 <h4 id="make-histograms">Make Histograms…<a class="anchor" aria-label="anchor" href="#make-histograms"></a>
 </h4>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">histogram</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/make_histogram.html">make_histogram</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">1e5</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">1e5</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
-<span class="va">colorized_histogram</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/colorize_histogram.html">colorize_histogram</a></span><span class="op">(</span><span class="va">histogram</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">histogram</span> <span class="op">&lt;-</span> <span class="fu">make_histogram</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">1e5</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">1e5</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="va">colorized_histogram</span> <span class="op">&lt;-</span> <span class="fu">colorize_histogram</span><span class="op">(</span><span class="va">histogram</span><span class="op">)</span>
 <span class="va">raster</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/rgba_int_to_raster.html">rgba_int_to_raster</a></span><span class="op">(</span><span class="fu"><a href="reference/rgbwt_to_rgba_int.html">rgbwt_to_rgba_int</a></span><span class="op">(</span><span class="va">colorized_histogram</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">raster</span><span class="op">)</span></code></pre></div>
 </div>
@@ -111,7 +111,7 @@
 <h4 id="-colorize-data">… Colorize Data…<a class="anchor" aria-label="anchor" href="#-colorize-data"></a>
 </h4>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">colorized</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/colorize_data.html">colorize_data</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">1e5</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">1e5</span><span class="op">)</span><span class="op">)</span>, RGBA<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">64</span>,<span class="fl">128</span>,<span class="fl">192</span>,<span class="fl">50</span><span class="op">)</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">colorized</span> <span class="op">&lt;-</span> <span class="fu">colorize_data</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">1e5</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">1e5</span><span class="op">)</span><span class="op">)</span>, RGBA<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">64</span>,<span class="fl">128</span>,<span class="fl">192</span>,<span class="fl">50</span><span class="op">)</span><span class="op">)</span>
 <span class="va">raster</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/rgba_int_to_raster.html">rgba_int_to_raster</a></span><span class="op">(</span><span class="fu"><a href="reference/rgbwt_to_rgba_int.html">rgbwt_to_rgba_int</a></span><span class="op">(</span><span class="va">colorized</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">raster</span><span class="op">)</span></code></pre></div>
 </div>

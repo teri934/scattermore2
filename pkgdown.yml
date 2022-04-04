@@ -2,8 +2,8 @@ pandoc: 2.7.3
 pkgdown: 2.0.2
 pkgdown_sha: ~
 articles:
-  combine: combine.html
-  data: data.html
   histogram: histogram.html
-last_built: 2022-04-03T16:11Z
+  merge_and_blend: merge_and_blend.html
+  points: points.html
+last_built: 2022-04-04T14:51Z
 
