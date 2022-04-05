@@ -12,6 +12,7 @@ devtools::install_github('teri934/scattermore2')
 
 ### Short Description 📝
 R package with implemented C-based conversion of large scatterplot data to rasters plus other operations such as data blurring or data alpha blending. Speeds up plotting of data with millions of points.
+[Webpage for overview](https://teri934.github.io/scattermore2/)
 
 
 ### Simple Usage 🖱️

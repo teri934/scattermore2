@@ -40,10 +40,10 @@ scatter_singlecolor_rgbwt(const unsigned *dim,
         size_t x = (xy[i] - x_begin) * x_bin;  //get new point coordinates for result raster
         size_t y = (xy[i + size_data] - y_begin) * y_bin;
 
-        if (x >= size_out_x || y >= size_out_y)
+        if(x >= size_out_x || y >= size_out_y)
             continue;
-				
-	    size_t offset = x * size_out_y + y;
+
+        size_t offset = x * size_out_y + y;
         RGBWT[offset + offset_R] += R * A;
         RGBWT[offset + offset_G] += G * A;
         RGBWT[offset + offset_B] += B * A;
